@@ -1,0 +1,16 @@
+name: Despliegue automatico
+
+on: push
+
+jobs:
+  my-job:
+    name: My despliegue automatico
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to davidpractica.surge.sh
+        uses: dswistowski/surge-sh-action@v1
+        with:
+          domain: 'davidpractica.surge.sh'
+          project: '.'
+          login: ${{ secrets.SURGE_LOGIN }}
+          token: ${{ secrets.SURGE_TOKEN }}
